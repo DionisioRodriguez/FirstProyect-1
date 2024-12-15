@@ -1,0 +1,1027 @@
+/* VARIABLES */
+
+$color_titulos: #286675;
+$color_fondo: #4293A6;
+$color_footer: #1B5966;
+$color_categoria: #358a96;
+$color_titulosPack: #8AEFF9;
+$color_button: #1bb5d7;
+
+/* EXTEND */
+
+.border {
+    border: 3px solid #000;
+}
+
+.font-size25 {
+    font-size: 25px;
+}
+
+/* MIXINS */
+
+@mixin flex ($flex-d, $align-i, $justify-c) {
+    display: flex;
+    flex-direction: $flex-d;
+    align-items: $align-i;
+    justify-content: $justify-c;
+}
+
+@mixin border ($b-top, $b-bottom, $b-right, $b-left) {
+    border-top: $b-top;
+    border-bottom: $b-bottom;
+    border-right: $b-right;
+    border-left: $b-left;
+}
+
+@mixin movile {
+    @media screen and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: 1024px) {
+        @content;
+    }
+}
+
+/* RESET */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial;
+    text-decoration: none;
+    list-style: none;
+}
+
+i {
+    color: #000;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: $color_fondo;
+}
+
+body, header, footer {
+    @include movile {
+        max-width: 100dvw;
+    }
+}
+
+/* PACK GENERAL */
+
+.servicio__titulo, .principal__titulo, .form__titulo, .faq__titulo, .primer__titulo {
+    font-family: "Poppins";
+    text-align: center;
+    color: $color_titulos;
+    font-size: 50px;
+    text-transform: uppercase;
+    margin: 20px 450px;
+    padding: 10px;
+    background-color: #fff;
+    border: 4px solid #000;
+    margin-top: 150px;
+}
+
+.servicio__titulo, .principal__titulo, .primer__titulo {
+    @include movile {
+        font-size: 28px;
+        margin: 30px auto;
+        margin-top: 100px;
+    }
+}
+.faq__titulo, .form__titulo {
+    @include movile {
+        font-size: 22px;
+        margin: 30px auto;
+        margin-top: 100px;
+    }
+}
+
+/* HEADER */
+
+.navbar {
+    padding: 0;
+
+    .navbar-brand {
+        padding: 0 0 0 30px;
+
+        .logo__img {
+            width: 90px;
+
+            @include movile {
+                width: 50px;
+            }
+        }
+    }
+
+    .navbar-toggler {
+        display: none;
+
+        @include movile {
+            display: inline-block;
+        }
+    }
+
+    .nav__list {
+        @include flex(inherit, center, inherit);
+        padding: 10px 0 10px 30px;
+        margin: 0;
+
+        @include movile {
+            display: none;
+        }
+
+        .nav__link {
+            @include flex(inherit, inherit, space-evenly);
+            font-size: 22px;
+            margin-right: 13px;
+
+            a {
+                color: #000;
+                padding: 0 8px;
+
+                &:hover {
+                    border-bottom: 1px solid #000;
+                    transform: translateY(-5px);
+                }
+
+                &:active {
+                    color: #000a;
+                    border-bottom-color: #000a;
+                }
+            }
+        }
+
+        .nav__link:last-child {
+            margin-right: 12px;
+        }
+    }
+}
+
+/* INDEX */
+
+.principal {
+    text-align: center;
+}
+
+.principal__img {
+    @extend .border;
+    margin-top: 30px;
+    width: 70%;
+    margin-bottom: 15px;
+
+    @include movile {
+        margin-top: 0;
+        width: 90%;
+    }
+}
+
+/* PARTE form */
+
+.section--form {
+    @include flex(column, center, center);
+    min-height: 60dvh;
+    margin-bottom: 124px;
+
+    @include movile {
+        margin-bottom: 0;
+    }
+
+    form {
+        background-color: $color_titulos;
+        margin: auto;
+        max-width: 600px;
+        box-shadow: 0 0 40px #000;
+        display: grid;
+        grid-template-columns: repeat(2 1fr);
+        grid-template-areas: "name nro" "email email" "pueblo servicio" "termino termino" "button button";
+        gap: 15px;
+        padding: 25px;
+        border-radius: 12px;
+
+        @include movile {
+            @include flex(column, inherit, inherit);
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .form__input:first-child {
+            grid-area: name;
+        }
+        .form__input:nth-child(2) {
+            grid-area: email;
+        }
+        .form__input:nth-child(3) {
+            grid-area: nro;
+        }
+        .form__input:nth-child(4) {
+            grid-area: servicio;
+        }
+        .form__input:nth-child(5) {
+            grid-area: pueblo;
+        }
+        .form__input:last-child {
+            grid-area: button;
+        }
+
+        label {
+            color: #fff;
+            font-family: "Monserrat";
+            font-size: 18px;
+        }
+
+        #celular, #nombre, #mensaje, #mensaje2, #email, .form__submit {
+            border-radius: 4px;
+            width: 100%;
+            padding: 9px;
+            margin: 4px;
+            border: none;
+            font-size: 15px;
+        }
+
+        #email {
+            width: 210%;
+
+            @include movile {
+                max-width: 100%;
+            }
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .form__submit {
+            background-color: $color_button;
+            color: #fff;
+            font-size: 18px;
+        }
+    }
+}
+
+/* PARTE nosotros */
+
+.primer--container {
+    text-align: center;
+
+    .primer__img {
+        width: 70%;
+        margin-top: 150px;
+        border: 4px solid #000;
+
+        @include movile {
+            width: 85%;
+            margin-top: 100px;
+        }
+    }
+
+    .primer__titulo {
+        margin: 40px 600px 30px 600px;
+
+        @include movile {
+            margin: 20px 0;
+        }
+    }
+}
+
+.nosotros {
+
+    .nosotros--container {
+        background-color: #fff;
+        @include border(3px solid #000, 3px solid #000, none, none);
+
+        .nosotros__pregunta {
+            margin: 20px 0 30px 70px;
+            font-size: 30px;
+
+            @include movile {
+                text-align: center;
+                margin-left: 0;
+            }
+        }
+
+        .nosotros__item--container {
+            margin: 0 150px 0 150px;
+
+            @include movile {
+                margin: 0;
+                padding: 0;
+            }
+
+            .nosotros__item {
+                @extend .font-size25;
+                color: #000a;
+
+                @include movile {
+                    text-align: center;
+                }
+            }
+
+            .nosotros__respuesta {
+                margin: 8px 0 30px 30px;
+                font-size: 18px;
+
+                @include movile {
+                    text-align: center;
+                    margin: 8px 15px 25px 15px;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+}
+
+/* trabajo */
+
+.trabajo {
+
+    .trabajo__titulo {
+        text-align: center;
+        margin: 35px 600px 10px 600px;
+        padding: 18px 0;
+        color: $color_titulos;
+        background-color: #fff;
+        font-size: 35px;
+        border: 4px solid #000;
+
+        @include movile {
+            @include border(3px solid #000, 3px solid #000, none, none);
+            margin: 35px auto 10px auto;
+            font-size: 27px;
+        }
+    }
+
+    .trabajo--container {
+        @include flex(row, inherit, space-evenly);
+
+        @include movile {
+            @include flex(column, inherit, inherit)
+        }
+
+        .trabajo__img--container {
+            margin: 20px;
+
+            .trabajo__img {
+                @extend .border;
+                border-radius: 30px;
+                width: 100%;
+            }
+        }
+    }
+}
+
+/* pueblo */
+
+.pueblo {
+
+    .pueblo__titulo--container {
+        margin-bottom: 40px;
+
+        .pueblo__titulo {
+            text-align: center;
+            margin: 35px 600px 10px 600px;
+            color: $color_titulos;
+            font-size: 35px;
+            border: 4px solid #000;
+            background-color: #fff;
+            padding: 18px 0;
+
+            @include movile {
+                @include border(3px solid #000, 3px solid #000, none, none);
+                margin: 35px auto 10px auto;
+                font-size: 27px;
+            }
+        }
+    }
+
+    .pueblo--container {
+        @include flex(row, inherit, space-evenly);
+        text-align: center;
+
+        @include movile {
+            @include flex(column, inherit, inherit)
+        }
+
+        .pueblo__img--container {
+            position: relative;
+            margin-bottom: 35px;
+
+            @include movile {
+                position: static;
+            }
+
+            .pueblo__img {
+                width: 90%;
+                border-radius: 30px 30px 30px 0;
+                @extend .border;
+
+                @include movile {
+                    border-radius: 30px;
+                }
+
+                &:hover {
+                    box-shadow: 0 0 15px #000;
+                }
+            }
+
+            .pueblo__nombre {
+                @extend .font-size25;
+                position: absolute;
+                z-index: 10;
+                bottom: -16px;
+                left: 25px;
+                padding: 0 10px;
+                background-color: #fff;
+                @extend .border;
+
+                @include movile {
+                    position: static;
+                    margin: 8px 60px;
+                }
+            }
+        }
+
+        .ultimo-pueblo {
+
+            @include movile{
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+/* PARTE faq */
+
+.faq--container {
+    margin: 10px 190px 25px 190px;
+    padding: 10px;
+
+    @include movile {
+        margin: 0 20px 25px 20px;
+        padding: 0;
+    }
+
+    .faq__pregunta--container {
+        margin-bottom: 40px;
+        @extend .border;
+        background-color: #fff;
+
+        .faq__pregunta {
+            text-align: center;
+            margin-bottom: 8px;
+            margin-right: 1150px;
+            padding: 7px;
+            font-size: 24px;
+            background-color: #fff;
+            border-bottom: 3px solid #000;
+            font-weight: bold;
+
+            @include movile {
+                margin: 0 auto 10px auto;
+            }
+        }
+
+        .faq__respuesta {
+            margin: 0 25px;
+            background-color: #fff;
+            padding: 0 10px 10px 10px;
+            font-size: 20px;
+
+            @include movile {
+                margin: 0 10px;
+                text-align: center;
+            }
+        }
+    }
+
+    .ultimo-faq {
+
+        @include movile {
+            margin: 0;
+        }
+    }
+}
+
+/* PARTE SERVICIOS */
+
+/* PARTE PACK categoria */
+
+.servicio__titulo {
+
+    @include movile {
+        margin-top: 100px;
+    }
+}
+
+.servicios--container {
+    @include flex (row, inherit, space-around);
+    margin-top: 45px;
+
+    @include movile {
+        @include flex(column, inherit, inherit);
+        margin-top: 6px;
+    }
+
+    .servicios__categoria--container {
+        width: 700px;
+        text-align: center;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 30px;
+        @extend .border;
+
+        @include movile {
+            @include flex(column, inherit, inherit);
+            width: 100dvw;
+            border-radius: 0;
+            border: none;
+            margin-bottom: 25px;
+        }
+
+        .categoria--container {
+            margin: 15px;
+
+            .categoria__title {
+                margin: 5px 55px 10px 55px;
+                color: $color_categoria;
+            }
+
+            i {
+                color: $color_categoria;
+            }
+        }
+    }
+
+/* PARTE plan */
+
+        .internet--container {
+            @include flex(column, center, inherit);
+            background-color: #fff;
+            @extend .border;
+            border-radius: 30px;
+            width: 700px;
+            text-align: center;
+
+            @include movile {
+                @include flex(column, inherit, inherit);
+                width: 100dvw;
+                border-radius: 0;
+                border: none;
+            }
+
+            .internet__title--container {
+                margin: 28px 70px 0 70px;
+                padding: 15px;
+                @extend .border;
+                color: $color_categoria;
+
+                @include movile {
+                    margin: 15px 30px;
+                    padding: 15px 10px 5px 10px;
+                }
+
+                .internet__title {
+                    margin: 0;
+                }
+            }
+
+            i {
+                margin-right: 5px;
+
+                @include movile {
+                    margin: 0;
+                }
+            }
+        }
+
+        .internet__plan--container {
+            @include flex(row, inherit, space-around);
+            margin-top: 10px;
+
+            div {
+                @include flex(row, center, inherit);
+                margin: 10px;
+            }
+
+            .internet__plan {
+                font-size: 18px;
+                margin-bottom: 0;
+
+                @include movile {
+                    margin: 0;
+                }
+            }
+
+            i {
+
+                @include movile {
+                    margin-right: 7px;
+                }
+            }
+        }
+
+        .internet__premiun--container {
+            @include flex(row, center, center);
+            margin: 0 120px 20px 120px;
+            padding: 7.5px 15px;
+            border: 4px solid #000;
+
+            @include movile {
+                margin: 12px 20px 12px 20px;
+            }
+
+            .internet__premiun {
+                margin: 0;
+                font-size: 22px;
+                padding-bottom: 0;
+            }
+
+            strong {
+                color: #db0c0c;
+            }
+        }
+}
+
+/* PARTE fox Y hbo */
+
+.pack__title {
+    margin: 100px 630px 0 630px;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 32px;
+    text-transform: uppercase;
+    background-color: #fff;
+    @extend .border;
+    color: $color_footer;
+    border-radius: 8px;
+
+    @include movile {
+        @include border(3px solid #000, 3px solid #000, none, none);
+        margin: 50px auto 0 auto;
+        padding: 10px 10px;
+        font-size: 22px;
+        border-radius: 0;
+    }
+}
+
+.pack__foxhbo--container {
+    @include flex(row, center, center);
+    text-align: center;
+    margin: 40px 0;
+
+    @include movile {
+        @include flex(column, inherit, inherit);
+        margin: 20px 0 30px 0;
+    }
+
+    .pack-fox--container {
+        background-color: #fff;
+        padding: 15px 10px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px #000;
+        margin-right: 40px;
+
+        @include movile {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .pack-fox__title {
+            @extend .font-size25;
+            background-color: $color_titulosPack;
+            margin: 0 320px 10px 320px;
+            padding: 5px 7px;
+            border-radius: 12px;
+
+            @include movile {
+                margin: 0 50px 10px 50px;
+                padding: 2px 5px;
+                border-bottom: 3px solid #000;
+            }
+        }
+
+        .servicio__img--container {
+            display: grid;
+            grid-template-columns: repeat(3 1fr);
+            grid-template-areas: "img1 img2 img3";
+            gap: 15px;
+
+            @include movile {
+                @include flex(column, center, inherit);
+            }
+
+            .pack-fox__img1 {
+                grid-area: img1;
+
+                @include movile {
+                    width: 55%;
+                }
+            }
+            .pack-fox__img2 {
+                grid-area: img2;
+
+                @include movile {
+                    width: 55%;
+                }
+            }
+            .pack-fox__img3 {
+                grid-area: img3;
+
+                @include movile {
+                    width: 55%;
+                }
+            }
+        }
+    }
+
+    .pack-hbo--container {
+        background-color: #fff;
+        padding: 15px 10px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px #000;
+
+        @include movile {
+            width: 100dvw;
+        }
+
+        .pack-hbo__title {
+            @extend .font-size25;
+            background-color: $color_titulosPack;
+            margin: 0 320px 10px 320px;
+            padding: 5px 7px;
+            border-radius: 12px;
+
+            @include movile {
+                margin: 0 50px 10px 50px;
+                padding: 2px 5px;
+                border-bottom: 3px solid #000;
+            }
+        }
+
+        .servicio__img--container {
+            display: grid;
+            grid-template-columns: repeat(3 1fr);
+            grid-template-areas: "img1 img2 img3";
+            gap: 15px;
+
+            @include movile {
+                @include flex(column, center, inherit);
+            }
+
+            .pack-hbo__img1 {
+                grid-area: img1;
+            }
+            .pack-hbo__img2 {
+                grid-area: img2;
+            }
+            .pack-hbo__img3 {
+                grid-area: img3;
+            }
+        }
+    }
+}
+/* PARTE PACK DTVGO, DISNEY Y COMPLETO */
+
+.pack-triple--container {
+    @include flex(row, center, space-around);
+    margin-bottom: 40px;
+
+    @include movile {
+        @include flex(column, inherit, inherit);
+        margin-bottom: 0;
+    }
+
+    .pack-dtvgodisney--container {
+        @include flex(row, inherit, inherit);
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 0 30px #000;
+
+        @include movile {
+            @include flex(column, inherit, inherit);
+            box-shadow: none;
+            padding: 0;
+            background-color: transparent;
+        }
+
+        .pack-dtvgo--container {
+            @include flex(column, center, inherit);
+
+            @include movile {
+                background-color: #fff;
+                box-shadow: 0 0 20px #000;
+                padding: 15px;
+                width: 100dvw;
+                border-radius: 12px;
+            }
+
+            .pack-dtvgo__title {
+                @extend .font-size25;
+                background-color: $color_titulosPack;
+                margin: 0 35px 10px 35px;
+                padding: 5px 7px;
+                border-radius: 12px;
+
+                @include movile {
+                    margin-bottom: 15px;
+                }
+
+                @include movile {
+                    margin: 0 50px 10px 50px;
+                    padding: 2px 5px;
+                    border-bottom: 3px solid #000;
+                }
+            }
+        }
+
+        .pack-disney--container {
+            @include flex(column, center, inherit);
+
+            @include movile {
+                background-color: #fff;
+                box-shadow: 0 0 20px #000;
+                padding: 15px;
+                width: 100dvw;
+                border-radius: 12px;
+                margin-top: 30px;
+            }
+
+            .pack-disney__title {
+                @extend .font-size25;
+                background-color: $color_titulosPack;
+                margin: 0 35px 10px 35px;
+                padding: 5px 7px;
+                border-radius: 12px;
+
+                @include movile {
+                    margin-bottom: 15px;
+                }
+
+                @include movile {
+                    margin: 0 50px 10px 50px;
+                    padding: 2px 5px;
+                    border-bottom: 3px solid #000;
+                }
+            }
+        }
+    }
+
+    .pack-completo--container {
+        text-align: center;
+        background-color: #fff;
+        padding: 15px;
+        box-shadow: 0 0 30px #000;
+        border-radius: 12px;
+
+        @include movile {
+            width: 100dvw;
+            margin-top: 30px;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 -5px 25px #000;
+        }
+
+        .pack-completo__title {
+            @extend .font-size25;
+            padding: 5px 0;
+            background-color: $color_titulosPack;
+            margin: 0 490px 20px 490px;
+            padding: 5px 7px;
+            border-radius: 12px;
+
+            @include movile {
+                margin: 0 50px 10px 50px;
+                padding: 2px 5px;
+                border-bottom: 3px solid #000;
+            }
+        }
+
+        .pack-completo__img--container {
+
+            @include movile {
+                @include flex(column, center, inherit);
+            }
+
+            img {
+
+                @include movile {
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
+
+
+/* FIN PARTE SERVICIOS */
+
+/* FOOTER */
+
+footer {
+    @include flex(row, center, space-between);
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    border-top: 3px solid #000;
+    background-color: $color_footer;
+
+    @include movile {
+        height: 55px;
+    }
+
+    .footer__redes--container {
+        margin-left: 15px;
+
+        @include movile {
+            margin-left: 5px;
+        }
+
+        .footer__redes--title {
+            font-size: 22px;
+            margin-bottom: 0;
+
+            @include movile {
+                display: none;
+            }
+        }
+
+        i {
+            color: #fff;
+            margin: 7px;
+            font-size: 20px;
+
+            @include movile {
+                font-size: 24px;
+            }
+        }
+
+        .wtsp {
+            display: none;
+
+            @include movile {
+                display: inline-block;
+            }
+        }
+    }
+
+    .footer__mail--container {
+        border-radius: 15px;
+        list-style: none;
+
+        .footer__mail--title {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 5px;
+
+            @include movile {
+                font-size: 22px;
+                text-transform: uppercase;
+                margin-bottom: 0;
+                border-bottom: 3px solid #000;
+                border-radius: 10px;
+                padding: 0 10px;
+            }
+        }
+
+        .footer__mail {
+            color: #000;
+            background-color: #fff;
+            border: 2px solid #000;
+            padding: 3px 15px;
+            border-radius: 15px;
+
+            @include movile {
+                display: none;
+            }
+        }
+
+        #footer--mail {
+            list-style: none;
+            text-decoration: none;
+        }
+    }
+
+    .footer__wtsp--container {
+        i{
+            font-size: 40px;
+            color: #fff;
+            margin-right: 15px;
+
+            @include movile {
+                display: none;
+            }
+        }
+    }
+    
+}
+
+
