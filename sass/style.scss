@@ -190,7 +190,6 @@ body, header, footer {
 .section--form {
     @include flex(column, center, center);
     min-height: 60dvh;
-    margin-bottom: 124px;
 
     @include movile {
         margin-bottom: 0;

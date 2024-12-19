@@ -152,7 +152,6 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 60dvh;
-  margin-bottom: 124px;
 }
 @media screen and (max-width: 768px) {
   .section--form {
