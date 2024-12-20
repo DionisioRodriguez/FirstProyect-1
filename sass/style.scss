@@ -14,7 +14,7 @@ $color_button: #1bb5d7;
 }
 
 .font-size25 {
-    font-size: 25px;
+    font-size: 20px;
 }
 
 /* MIXINS */
@@ -70,7 +70,7 @@ body {
     background-color: $color_fondo;
 }
 
-body, header, footer {
+body, footer, header {
     @include movile {
         max-width: 100dvw;
     }
@@ -82,13 +82,17 @@ body, header, footer {
     font-family: "Poppins";
     text-align: center;
     color: $color_titulos;
-    font-size: 50px;
+    font-size: 40px;
     text-transform: uppercase;
-    margin: 20px 450px;
+    margin: 20px 280px;
     padding: 10px;
     background-color: #fff;
     border: 4px solid #000;
-    margin-top: 150px;
+    margin-top: 100px;
+
+    @include tablet {
+        margin: 100px 150px 40px 150px;
+    }
 }
 
 .servicio__titulo, .principal__titulo, .primer__titulo {
@@ -100,7 +104,7 @@ body, header, footer {
 }
 .faq__titulo, .form__titulo {
     @include movile {
-        font-size: 22px;
+        font-size: 17px;
         margin: 30px auto;
         margin-top: 100px;
     }
@@ -110,15 +114,16 @@ body, header, footer {
 
 .navbar {
     padding: 0;
+    width: 100dvw !important;
 
     .navbar-brand {
         padding: 0 0 0 30px;
 
         .logo__img {
-            width: 90px;
+            width: 80px;
 
             @include movile {
-                width: 50px;
+                width: 55px;
             }
         }
     }
@@ -126,6 +131,9 @@ body, header, footer {
     .navbar-toggler {
         display: none;
 
+        @include tablet {
+            display: inline-block;
+        }
         @include movile {
             display: inline-block;
         }
@@ -136,13 +144,16 @@ body, header, footer {
         padding: 10px 0 10px 30px;
         margin: 0;
 
+        @include tablet {
+            display: none;
+        }
         @include movile {
             display: none;
         }
 
         .nav__link {
             @include flex(inherit, inherit, space-evenly);
-            font-size: 22px;
+            font-size: 20px;
             margin-right: 13px;
 
             a {
@@ -169,6 +180,10 @@ body, header, footer {
 
 /* INDEX */
 
+.principal__titulo {
+    margin-bottom: 0;
+}
+
 .principal {
     text-align: center;
 }
@@ -186,6 +201,17 @@ body, header, footer {
 }
 
 /* PARTE form */
+
+.form__titulo {
+    margin: 100px 200px 30px 200px;
+
+    @include tablet {
+        margin: 100px 80px 30px 80px;
+    }
+    @include movile {
+        margin: 80px 50px 20px 50px;
+    }
+}
 
 .section--form {
     @include flex(column, center, center);
@@ -274,7 +300,7 @@ body, header, footer {
 
     .primer__img {
         width: 70%;
-        margin-top: 150px;
+        margin-top: 100px;
         border: 4px solid #000;
 
         @include movile {
@@ -284,8 +310,11 @@ body, header, footer {
     }
 
     .primer__titulo {
-        margin: 40px 600px 30px 600px;
+        margin: 40px 300px 30px 300px;
 
+        @include tablet {
+            margin: 40px 240px 30px 240px;
+        }
         @include movile {
             margin: 20px 0;
         }
@@ -302,6 +331,9 @@ body, header, footer {
             margin: 20px 0 30px 70px;
             font-size: 30px;
 
+            @include tablet {
+                margin: 20px 0 30px 20px;
+            }
             @include movile {
                 text-align: center;
                 margin-left: 0;
@@ -309,8 +341,11 @@ body, header, footer {
         }
 
         .nosotros__item--container {
-            margin: 0 150px 0 150px;
+            margin: 0 150px;
 
+            @include tablet {
+                margin: 0 50px 0 40px;
+            }
             @include movile {
                 margin: 0;
                 padding: 0;
@@ -345,13 +380,16 @@ body, header, footer {
 
     .trabajo__titulo {
         text-align: center;
-        margin: 35px 600px 10px 600px;
+        margin: 35px 250px 10px 250px;
         padding: 18px 0;
         color: $color_titulos;
         background-color: #fff;
         font-size: 35px;
         border: 4px solid #000;
 
+        @include tablet {
+            margin: 35px 120px 10px 120px;
+        }
         @include movile {
             @include border(3px solid #000, 3px solid #000, none, none);
             margin: 35px auto 10px auto;
@@ -362,17 +400,32 @@ body, header, footer {
     .trabajo--container {
         @include flex(row, inherit, space-evenly);
 
+        @include tablet {
+            @include flex(column, inherit, inherit);
+        }
         @include movile {
             @include flex(column, inherit, inherit)
         }
 
-        .trabajo__img--container {
-            margin: 20px;
+        .container--container {
+            @include flex(row, inherit, space-evenly);
+            width: 100%;
 
-            .trabajo__img {
-                @extend .border;
-                border-radius: 30px;
-                width: 100%;
+            @include tablet {
+                @include flex(row, inherit, center);
+            }
+            @include movile {
+                @include flex(column, inherit, inherit);
+            }
+
+            .trabajo__img--container {
+                margin: 20px;
+    
+                .trabajo__img {
+                    @extend .border;
+                    border-radius: 30px;
+                    width: 100%;
+                }
             }
         }
     }
@@ -387,13 +440,16 @@ body, header, footer {
 
         .pueblo__titulo {
             text-align: center;
-            margin: 35px 600px 10px 600px;
+            margin: 35px 270px 10px 270px;
             color: $color_titulos;
             font-size: 35px;
             border: 4px solid #000;
             background-color: #fff;
             padding: 18px 0;
 
+            @include tablet {
+                margin: 35px 150px 10px 150px
+            }
             @include movile {
                 @include border(3px solid #000, 3px solid #000, none, none);
                 margin: 35px auto 10px auto;
@@ -403,56 +459,87 @@ body, header, footer {
     }
 
     .pueblo--container {
-        @include flex(row, inherit, space-evenly);
+        @include flex(row, center, space-evenly);
         text-align: center;
+        flex-wrap: wrap;
 
+        @include tablet {
+            @include flex(column, inherit, inherit);
+            flex-wrap: wrap;
+        }
         @include movile {
             @include flex(column, inherit, inherit)
         }
 
-        .pueblo__img--container {
-            position: relative;
-            margin-bottom: 35px;
+        .pueblo--container--container {
+            @include flex(row, inherit, inherit);
+            flex-wrap: wrap;
 
+            @include tablet {
+                @include flex(row, inherit, center);
+            }
             @include movile {
-                position: static;
+                @include flex(column, inherit, center);
             }
 
-            .pueblo__img {
-                width: 90%;
-                border-radius: 30px 30px 30px 0;
-                @extend .border;
-
-                @include movile {
-                    border-radius: 30px;
-                }
-
-                &:hover {
-                    box-shadow: 0 0 15px #000;
-                }
-            }
-
-            .pueblo__nombre {
-                @extend .font-size25;
-                position: absolute;
-                z-index: 10;
-                bottom: -16px;
-                left: 25px;
-                padding: 0 10px;
-                background-color: #fff;
-                @extend .border;
+            .pueblo__img--container {
+                position: relative;
+                margin-bottom: 30px;
 
                 @include movile {
                     position: static;
-                    margin: 8px 60px;
+                }
+    
+                .pueblo__img {
+                    width: 444px;
+                    border-radius: 30px 30px 30px 0;
+                    @extend .border;
+    
+                    @include tablet {
+                        width: 370px;
+                    }
+                    @include movile {
+                        width: 90%;
+                        border-radius: 30px;
+                    }
+
+                    &:hover {
+                        box-shadow: 0 0 15px #000;
+                    }
+                }
+
+                .pueblo__nombre {
+                    @extend .font-size25;
+                    position: absolute;
+                    z-index: 10;
+                    bottom: -16px;
+                    left: 0;
+                    padding: 0 10px;
+                    background-color: #fff;
+                    @extend .border;
+
+                    @include movile {
+                        position: static;
+                        margin: 8px 60px;
+                    }
                 }
             }
-        }
 
-        .ultimo-pueblo {
+            .alvarez, .acebal, .pueblo-muñoz, .villa-amelia {
+                margin-right: 30px;
 
-            @include movile{
-                margin-bottom: 10px;
+                @include tablet {
+                    margin-right: 15px;
+                }
+                @include movile {
+                    margin-right: 0;
+                }
+            }
+            .ultimo-pueblo {
+
+                @include movile{
+                    margin-bottom: 10px;
+                }
             }
         }
     }
@@ -460,33 +547,39 @@ body, header, footer {
 
 /* PARTE faq */
 
+.faq__titulo {
+    margin: 100px 250px 20px 250px;
+
+    @include tablet {
+        margin: 100px 120px 20px 120px;
+    }
+}
+
 .faq--container {
-    margin: 10px 190px 25px 190px;
+    margin: 10px 150px 0 150px;
     padding: 10px;
 
+    @include tablet {
+        margin: 10px 20px 25px 20px;
+    }
     @include movile {
         margin: 0 20px 25px 20px;
         padding: 0;
     }
 
     .faq__pregunta--container {
-        margin-bottom: 40px;
         @extend .border;
+        margin-bottom: 40px;
         background-color: #fff;
 
         .faq__pregunta {
             text-align: center;
-            margin-bottom: 8px;
-            margin-right: 1150px;
+            margin: 0 auto 10px auto;
             padding: 7px;
             font-size: 24px;
             background-color: #fff;
             border-bottom: 3px solid #000;
             font-weight: bold;
-
-            @include movile {
-                margin: 0 auto 10px auto;
-            }
         }
 
         .faq__respuesta {
@@ -494,10 +587,13 @@ body, header, footer {
             background-color: #fff;
             padding: 0 10px 10px 10px;
             font-size: 20px;
+            text-align: center;
 
+            @include tablet {
+                margin: 0 10px;
+            }
             @include movile {
                 margin: 0 10px;
-                text-align: center;
             }
         }
     }
@@ -522,9 +618,12 @@ body, header, footer {
 }
 
 .servicios--container {
-    @include flex (row, inherit, space-around);
+    @include flex (row, center, space-around);
     margin-top: 45px;
 
+    @include tablet {
+        @include flex(column, center, inherit);
+    }
     @include movile {
         @include flex(column, inherit, inherit);
         margin-top: 6px;
@@ -537,6 +636,10 @@ body, header, footer {
         background-color: #fff;
         border-radius: 30px;
         @extend .border;
+
+        &:first-child {
+            margin-bottom: 30px;
+        }
 
         @include movile {
             @include flex(column, inherit, inherit);
@@ -567,7 +670,7 @@ body, header, footer {
             background-color: #fff;
             @extend .border;
             border-radius: 30px;
-            width: 700px;
+            width: 750px;
             text-align: center;
 
             @include movile {
@@ -630,7 +733,7 @@ body, header, footer {
 
         .internet__premiun--container {
             @include flex(row, center, center);
-            margin: 0 120px 20px 120px;
+            margin: 0 80px 20px 80px;
             padding: 7.5px 15px;
             border: 4px solid #000;
 
@@ -653,7 +756,7 @@ body, header, footer {
 /* PARTE fox Y hbo */
 
 .pack__title {
-    margin: 100px 630px 0 630px;
+    margin: 60px 310px 0 310px;
     padding: 10px 0;
     text-align: center;
     font-size: 32px;
@@ -663,6 +766,9 @@ body, header, footer {
     color: $color_footer;
     border-radius: 8px;
 
+    @include tablet {
+        margin: 60px 200px 0 200px;
+    }
     @include movile {
         @include border(3px solid #000, 3px solid #000, none, none);
         margin: 50px auto 0 auto;
@@ -673,12 +779,11 @@ body, header, footer {
 }
 
 .pack__foxhbo--container {
-    @include flex(row, center, center);
+    @include flex(column, center, space-evenly);
     text-align: center;
     margin: 40px 0;
 
     @include movile {
-        @include flex(column, inherit, inherit);
         margin: 20px 0 30px 0;
     }
 
@@ -687,7 +792,7 @@ body, header, footer {
         padding: 15px 10px;
         border-radius: 12px;
         box-shadow: 0 0 20px #000;
-        margin-right: 40px;
+        margin-bottom: 40px;
 
         @include movile {
             width: 100%;
@@ -697,7 +802,7 @@ body, header, footer {
         .pack-fox__title {
             @extend .font-size25;
             background-color: $color_titulosPack;
-            margin: 0 320px 10px 320px;
+            margin: 0 250px 10px 250px;
             padding: 5px 7px;
             border-radius: 12px;
 
@@ -709,31 +814,28 @@ body, header, footer {
         }
 
         .servicio__img--container {
-            display: grid;
-            grid-template-columns: repeat(3 1fr);
-            grid-template-areas: "img1 img2 img3";
-            gap: 15px;
+            @include flex(row, center, center);
 
             @include movile {
                 @include flex(column, center, inherit);
             }
 
             .pack-fox__img1 {
-                grid-area: img1;
+                width: 85%;
 
                 @include movile {
                     width: 55%;
                 }
             }
             .pack-fox__img2 {
-                grid-area: img2;
+                width: 85%;
 
                 @include movile {
                     width: 55%;
                 }
             }
             .pack-fox__img3 {
-                grid-area: img3;
+                width: 85%;
 
                 @include movile {
                     width: 55%;
@@ -755,7 +857,7 @@ body, header, footer {
         .pack-hbo__title {
             @extend .font-size25;
             background-color: $color_titulosPack;
-            margin: 0 320px 10px 320px;
+            margin: 0 230px 10px 230px;
             padding: 5px 7px;
             border-radius: 12px;
 
@@ -767,23 +869,18 @@ body, header, footer {
         }
 
         .servicio__img--container {
-            display: grid;
-            grid-template-columns: repeat(3 1fr);
-            grid-template-areas: "img1 img2 img3";
-            gap: 15px;
+            @include flex(row, center, center);
 
             @include movile {
                 @include flex(column, center, inherit);
             }
 
             .pack-hbo__img1 {
-                grid-area: img1;
+                margin-right: 20px;
             }
             .pack-hbo__img2 {
-                grid-area: img2;
-            }
-            .pack-hbo__img3 {
-                grid-area: img3;
+                width: 170px;
+                margin-right: 15px;
             }
         }
     }
@@ -791,7 +888,7 @@ body, header, footer {
 /* PARTE PACK DTVGO, DISNEY Y COMPLETO */
 
 .pack-triple--container {
-    @include flex(row, center, space-around);
+    @include flex(column, center, space-around);
     margin-bottom: 40px;
 
     @include movile {
@@ -805,6 +902,8 @@ body, header, footer {
         padding: 15px;
         border-radius: 12px;
         box-shadow: 0 0 30px #000;
+        margin-bottom: 40px;
+        min-width: 600px;
 
         @include movile {
             @include flex(column, inherit, inherit);
@@ -827,8 +926,8 @@ body, header, footer {
             .pack-dtvgo__title {
                 @extend .font-size25;
                 background-color: $color_titulosPack;
-                margin: 0 35px 10px 35px;
-                padding: 5px 7px;
+                margin-bottom: 10px;
+                padding: 5px 35px;
                 border-radius: 12px;
 
                 @include movile {
@@ -858,15 +957,12 @@ body, header, footer {
             .pack-disney__title {
                 @extend .font-size25;
                 background-color: $color_titulosPack;
-                margin: 0 35px 10px 35px;
-                padding: 5px 7px;
+                margin-bottom: 10px;
+                padding: 5px 35px;
                 border-radius: 12px;
 
                 @include movile {
                     margin-bottom: 15px;
-                }
-
-                @include movile {
                     margin: 0 50px 10px 50px;
                     padding: 2px 5px;
                     border-bottom: 3px solid #000;
@@ -882,6 +978,9 @@ body, header, footer {
         box-shadow: 0 0 30px #000;
         border-radius: 12px;
 
+        @include tablet {
+            max-width: 760px;
+        }
         @include movile {
             width: 100dvw;
             margin-top: 30px;
@@ -893,7 +992,7 @@ body, header, footer {
             @extend .font-size25;
             padding: 5px 0;
             background-color: $color_titulosPack;
-            margin: 0 490px 20px 490px;
+            margin: 0 250px 10px 250px;
             padding: 5px 7px;
             border-radius: 12px;
 
@@ -911,6 +1010,13 @@ body, header, footer {
             }
 
             img {
+
+                &:nth-child(4) {
+                    width: 200px;
+                }
+                &:last-child {
+                    width: 200px;
+                }
 
                 @include movile {
                     width: 80%;
@@ -935,6 +1041,7 @@ footer {
 
     @include movile {
         height: 55px;
+        position: static !important;
     }
 
     .footer__redes--container {
@@ -945,7 +1052,7 @@ footer {
         }
 
         .footer__redes--title {
-            font-size: 22px;
+            font-size: 20px;
             margin-bottom: 0;
 
             @include movile {
@@ -956,10 +1063,10 @@ footer {
         i {
             color: #fff;
             margin: 7px;
-            font-size: 20px;
+            font-size: 15px;
 
             @include movile {
-                font-size: 24px;
+                font-size: 19px;
             }
         }
 
@@ -978,11 +1085,11 @@ footer {
 
         .footer__mail--title {
             color: #fff;
-            font-size: 18px;
+            font-size: 15px;
             margin-bottom: 5px;
 
             @include movile {
-                font-size: 22px;
+                font-size: 17px;
                 text-transform: uppercase;
                 margin-bottom: 0;
                 border-bottom: 3px solid #000;
@@ -997,6 +1104,7 @@ footer {
             border: 2px solid #000;
             padding: 3px 15px;
             border-radius: 15px;
+            margin-bottom: 5px;
 
             @include movile {
                 display: none;
@@ -1011,7 +1119,7 @@ footer {
 
     .footer__wtsp--container {
         i{
-            font-size: 40px;
+            font-size: 30px;
             color: #fff;
             margin-right: 15px;
 
