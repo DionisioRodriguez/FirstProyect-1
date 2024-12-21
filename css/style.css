@@ -31,6 +31,7 @@ a {
 
 body {
   background-color: #4293A6;
+  padding: 0 !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -76,11 +77,11 @@ body {
 
 /* HEADER */
 .navbar {
-  padding: 0;
+  padding: 0 !important;
   width: 100dvw !important;
 }
 .navbar .navbar-brand {
-  padding: 0 0 0 30px;
+  padding: 0 0 0 10px;
 }
 .navbar .navbar-brand .logo__img {
   width: 80px;
@@ -102,6 +103,10 @@ body {
   .navbar .navbar-toggler {
     display: inline-block;
   }
+}
+.navbar .offcanvas {
+  left: 0;
+  width: 100dvw;
 }
 .navbar .nav__list {
   display: flex;
@@ -147,7 +152,7 @@ body {
 
 /* INDEX */
 .principal__titulo {
-  margin-bottom: 0;
+  margin-bottom: 15px;
 }
 
 .principal {
@@ -155,9 +160,8 @@ body {
 }
 
 .principal__img {
-  margin-top: 30px;
-  width: 70%;
-  margin-bottom: 15px;
+  margin: 10px 0 15px 0;
+  width: 60%;
 }
 @media screen and (max-width: 768px) {
   .principal__img {
@@ -199,18 +203,14 @@ body {
   max-width: 600px;
   box-shadow: 0 0 40px #000;
   display: grid;
-  grid-template-columns: repeat(2 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-areas: "name nro" "email email" "pueblo servicio" "termino termino" "button button";
   gap: 15px;
-  padding: 25px;
+  padding: 15px 25px 25px 25px;
   border-radius: 12px;
 }
 @media screen and (max-width: 768px) {
   .section--form form {
-    display: flex;
-    flex-direction: column;
-    align-items: inherit;
-    justify-content: inherit;
     border-radius: 0;
     box-shadow: none;
   }
@@ -237,22 +237,15 @@ body {
   color: #fff;
   font-family: "Monserrat";
   font-size: 18px;
+  width: 100%;
 }
 .section--form form #celular, .section--form form #nombre, .section--form form #mensaje, .section--form form #mensaje2, .section--form form #email, .section--form form .form__submit {
   border-radius: 4px;
   width: 100%;
   padding: 9px;
-  margin: 4px;
+  margin: 0 0 4px 0;
   border: none;
   font-size: 15px;
-}
-.section--form form #email {
-  width: 210%;
-}
-@media screen and (max-width: 768px) {
-  .section--form form #email {
-    max-width: 100%;
-  }
 }
 .section--form form textarea {
   resize: none;
@@ -571,6 +564,11 @@ body {
     margin: 100px 120px 20px 120px;
   }
 }
+@media screen and (max-width: 768px) {
+  .faq__titulo {
+    margin: 80px 50px 20px 50px;
+  }
+}
 
 .faq--container {
   margin: 10px 150px 0 150px;
@@ -828,7 +826,6 @@ body {
   background-color: #fff;
   padding: 15px 10px;
   border-radius: 12px;
-  box-shadow: 0 0 20px #000;
   margin-bottom: 40px;
 }
 @media screen and (max-width: 768px) {
@@ -892,7 +889,6 @@ body {
   background-color: #fff;
   padding: 15px 10px;
   border-radius: 12px;
-  box-shadow: 0 0 20px #000;
 }
 @media screen and (max-width: 768px) {
   .pack__foxhbo--container .pack-hbo--container {
@@ -959,7 +955,6 @@ body {
   background-color: #fff;
   padding: 15px;
   border-radius: 12px;
-  box-shadow: 0 0 30px #000;
   margin-bottom: 40px;
   min-width: 600px;
 }
@@ -972,6 +967,7 @@ body {
     box-shadow: none;
     padding: 0;
     background-color: transparent;
+    min-width: 100px;
   }
 }
 .pack-triple--container .pack-dtvgodisney--container .pack-dtvgo--container {
@@ -983,7 +979,6 @@ body {
 @media screen and (max-width: 768px) {
   .pack-triple--container .pack-dtvgodisney--container .pack-dtvgo--container {
     background-color: #fff;
-    box-shadow: 0 0 20px #000;
     padding: 15px;
     width: 100dvw;
     border-radius: 12px;
@@ -1016,7 +1011,6 @@ body {
 @media screen and (max-width: 768px) {
   .pack-triple--container .pack-dtvgodisney--container .pack-disney--container {
     background-color: #fff;
-    box-shadow: 0 0 20px #000;
     padding: 15px;
     width: 100dvw;
     border-radius: 12px;
@@ -1107,7 +1101,6 @@ footer {
 @media screen and (max-width: 768px) {
   footer {
     height: 55px;
-    position: static !important;
   }
 }
 footer .footer__redes--container {
@@ -1130,7 +1123,7 @@ footer .footer__redes--container .footer__redes--title {
 footer .footer__redes--container i {
   color: #fff;
   margin: 7px;
-  font-size: 15px;
+  font-size: 18px;
 }
 @media screen and (max-width: 768px) {
   footer .footer__redes--container i {
