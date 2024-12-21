@@ -211,7 +211,7 @@ body, footer, header {
     margin: 100px 200px 30px 200px;
 
     @include tablet {
-        margin: 100px 80px 30px 80px;
+        margin: 100px 80px 10px 80px;
     }
     @include movile {
         margin: 80px 50px 20px 50px;
@@ -238,6 +238,9 @@ body, footer, header {
         padding: 15px 25px 25px 25px;
         border-radius: 12px;
 
+        @include tablet {
+            gap: 5px;
+        }
         @include movile {
             border-radius: 0;
             box-shadow: none;

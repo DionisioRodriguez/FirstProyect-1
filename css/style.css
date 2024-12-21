@@ -176,7 +176,7 @@ body {
 }
 @media screen and (max-width: 1024px) {
   .form__titulo {
-    margin: 100px 80px 30px 80px;
+    margin: 100px 80px 10px 80px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -208,6 +208,11 @@ body {
   gap: 15px;
   padding: 15px 25px 25px 25px;
   border-radius: 12px;
+}
+@media screen and (max-width: 1024px) {
+  .section--form form {
+    gap: 5px;
+  }
 }
 @media screen and (max-width: 768px) {
   .section--form form {
