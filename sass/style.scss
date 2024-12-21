@@ -187,7 +187,7 @@ body, footer, header {
 /* INDEX */
 
 .principal__titulo {
-    margin-bottom: 15px;
+    margin: 100px 60px 15px 60px;
 }
 
 .principal {
@@ -209,6 +209,7 @@ body, footer, header {
 
 .form__titulo {
     margin: 100px 200px 30px 200px;
+    font-size: 22px;
 
     @include tablet {
         margin: 100px 80px 10px 80px;
@@ -244,6 +245,7 @@ body, footer, header {
         @include movile {
             border-radius: 0;
             box-shadow: none;
+            gap: 15px;
         }
 
         .form__input:first-child {
@@ -316,7 +318,7 @@ body, footer, header {
             margin: 40px 240px 30px 240px;
         }
         @include movile {
-            margin: 20px 0;
+            margin: 20px 60px 30px 60px;
         }
     }
 }
@@ -549,6 +551,7 @@ body, footer, header {
 
 .faq__titulo {
     margin: 100px 250px 20px 250px;
+    font-size: 22px;
 
     @include tablet {
         margin: 100px 120px 20px 120px;
@@ -616,7 +619,7 @@ body, footer, header {
 .servicio__titulo {
 
     @include movile {
-        margin-top: 100px;
+        margin: 100px 60px 20px 60px;
     }
 }
 
@@ -1008,17 +1011,20 @@ body, footer, header {
                 @include flex(column, center, inherit);
             }
 
+            .completo--container {
+
+                @include movile {
+                    @include flex(column, center, inherit)
+                }
+            }
+
             img {
 
                 &:nth-child(4) {
-                    width: 200px;
+                    width: 235px;
                 }
                 &:last-child {
-                    width: 200px;
-                }
-
-                @include movile {
-                    width: 80%;
+                    width: 225px;
                 }
             }
         }
